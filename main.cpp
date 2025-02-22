@@ -1,5 +1,5 @@
 #include <iostream>
-#include <limits> // Para usar numeric_limits
+#include <limits>  // Para utilizar numeric_limits
 using namespace std;
 
 // Prototipos de funciones
@@ -7,6 +7,7 @@ void imprimirPares2a20();
 void tablaMultiplicar();
 void sumaParesHastaN();
 void calcularFactorial();
+void imprimirPrimos1a50();
 
 int main() {
     int opcion;
@@ -18,6 +19,7 @@ int main() {
         cout << "2. Mostrar la tabla de multiplicar de un numero ingresado\n";
         cout << "3. Calcular la suma de todos los numeros pares desde 1 hasta n\n";
         cout << "4. Calcular el factorial de un numero\n";
+        cout << "5. Imprimir la serie de numeros primos del 1 al 50\n";
         cout << "0. Salir\n";
         cout << "Seleccione una opcion: ";
         cin >> opcion;
@@ -27,6 +29,7 @@ int main() {
             case 2: tablaMultiplicar(); break;
             case 3: sumaParesHastaN(); break;
             case 4: calcularFactorial(); break;
+            case 5: imprimirPrimos1a50(); break;
             case 0: cout << "Saliendo del programa...\n"; break;
             default: cout << "Opcion invalida, intente de nuevo.\n";
         }
@@ -84,15 +87,10 @@ void calcularFactorial() {
     long long factorial = 1;
     cout << "\nIngrese un numero para calcular su factorial: ";
 
-    while (!(cin >> num)) { // Validación de entrada
-        cout << "Entrada no válida. Por favor ingrese un número entero: ";
+    while (!(cin >> num) || num < 0) { // Validación de entrada y números negativos
+        cout << "Entrada no válida o número negativo. Por favor ingrese un número entero no negativo: ";
         cin.clear(); // Limpiar el error de entrada
         cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignorar el resto de la entrada incorrecta
-    }
-
-    if (num < 0) {
-        cout << "El factorial no esta definido para numeros negativos.\n";
-        return;
     }
 
     for (int i = 1; i <= num; i++) {
@@ -100,6 +98,28 @@ void calcularFactorial() {
     }
 
     cout << "El factorial de " << num << " es: " << factorial << endl;
+}
+
+// Función que imprime los números primos del 1 al 50
+void imprimirPrimos1a50() {
+    cout << "\nNumeros primos del 1 al 50: ";
+
+    for (int num = 2; num <= 50; num++) {
+        bool esPrimo = true;
+
+        for (int i = 2; i * i <= num; i++) { // Optimización en la verificación de números primos
+            if (num % i == 0) {
+                esPrimo = false;
+                break;
+            }
+        }
+
+        if (esPrimo) {
+            cout << num << " ";
+        }
+    }
+
+    cout << endl;
 }
 // TIP See CLion help at <a
 // href="https://www.jetbrains.com/help/clion/">jetbrains.com/help/clion/</a>.
