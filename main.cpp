@@ -10,6 +10,8 @@ void imprimirPrimos1a50();
 void imprimirSerieEspecial();
 void imprimirFibonacci10();
 void sumaPrimeros100();
+void imprimirDivisores();
+void imprimirPrimeros10Primos();
 
 int main() {
     int opcion;
@@ -25,6 +27,8 @@ int main() {
         cout << "6. Imprimir la serie especial: 1, 3, 6, 10, 15, ..., n\n";
         cout << "7. Imprimir los primeros 10 terminos de la serie de Fibonacci\n";
         cout << "8. Calcular la suma de los primeros 100 numeros naturales\n";
+        cout << "9. Imprimir todos los divisores de un numero ingresado\n";
+        cout << "10. Imprimir los primeros 10 numeros primos\n";
         cout << "0. Salir\n";
         cout << "Seleccione una opcion: ";
         cin >> opcion;
@@ -38,6 +42,8 @@ int main() {
             case 6: imprimirSerieEspecial(); break;
             case 7: imprimirFibonacci10(); break;
             case 8: sumaPrimeros100(); break;
+            case 9: imprimirDivisores(); break;
+            case 10: imprimirPrimeros10Primos(); break;
             case 0: cout << "Saliendo del programa...\n"; break;
             default: cout << "Opcion invalida, intente de nuevo.\n";
         }
@@ -157,6 +163,45 @@ void sumaPrimeros100() {
         suma += i;
     }
     cout << "\nLa suma de los primeros 100 numeros naturales es: " << suma << endl;
+}
+
+// Función que imprime todos los divisores de un número ingresado
+void imprimirDivisores() {
+    int num;
+    cout << "\nIngrese un numero para encontrar sus divisores: ";
+    cin >> num;
+
+    cout << "Los divisores de " << num << " son: ";
+    for (int i = 1; i <= num; i++) {
+        if (num % i == 0) {
+            cout << i << " ";
+        }
+    }
+    cout << endl;
+}
+
+// Función que imprime los primeros 10 números primos
+void imprimirPrimeros10Primos() {
+    int contador = 0, num = 2;
+    cout << "\nLos primeros 10 numeros primos son:\n";
+
+    while (contador < 10) {
+        bool esPrimo = true;
+
+        for (int i = 2; i * i <= num; i++) {
+            if (num % i == 0) {
+                esPrimo = false;
+                break;
+            }
+        }
+
+        if (esPrimo) {
+            cout << num << " ";
+            contador++;
+        }
+        num++;
+    }
+    cout << endl;
 }
 // TIP See CLion help at <a
 // href="https://www.jetbrains.com/help/clion/">jetbrains.com/help/clion/</a>.
