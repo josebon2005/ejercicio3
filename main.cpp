@@ -9,6 +9,7 @@ void calcularFactorial();
 void imprimirPrimos1a50();
 void imprimirSerieEspecial();
 void imprimirFibonacci10();
+void sumaPrimeros100();
 
 int main() {
     int opcion;
@@ -23,6 +24,7 @@ int main() {
         cout << "5. Imprimir la serie de numeros primos del 1 al 50\n";
         cout << "6. Imprimir la serie especial: 1, 3, 6, 10, 15, ..., n\n";
         cout << "7. Imprimir los primeros 10 terminos de la serie de Fibonacci\n";
+        cout << "8. Calcular la suma de los primeros 100 numeros naturales\n";
         cout << "0. Salir\n";
         cout << "Seleccione una opcion: ";
         cin >> opcion;
@@ -35,6 +37,7 @@ int main() {
             case 5: imprimirPrimos1a50(); break;
             case 6: imprimirSerieEspecial(); break;
             case 7: imprimirFibonacci10(); break;
+            case 8: sumaPrimeros100(); break;
             case 0: cout << "Saliendo del programa...\n"; break;
             default: cout << "Opcion invalida, intente de nuevo.\n";
         }
@@ -147,6 +150,14 @@ void imprimirFibonacci10() {
     cout << endl;
 }
 
+// Función que calcula la suma de los primeros 100 números naturales
+void sumaPrimeros100() {
+    int suma = 0;
+    for (int i = 1; i <= 100; i++) {
+        suma += i;
+    }
+    cout << "\nLa suma de los primeros 100 numeros naturales es: " << suma << endl;
+}
 // TIP See CLion help at <a
 // href="https://www.jetbrains.com/help/clion/">jetbrains.com/help/clion/</a>.
 //  Also, you can try interactive lessons for CLion by selecting
