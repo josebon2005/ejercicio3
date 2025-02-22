@@ -8,6 +8,7 @@ void sumaParesHastaN();
 void calcularFactorial();
 void imprimirPrimos1a50();
 void imprimirSerieEspecial();
+void imprimirFibonacci10();
 
 int main() {
     int opcion;
@@ -21,6 +22,7 @@ int main() {
         cout << "4. Calcular el factorial de un numero\n";
         cout << "5. Imprimir la serie de numeros primos del 1 al 50\n";
         cout << "6. Imprimir la serie especial: 1, 3, 6, 10, 15, ..., n\n";
+        cout << "7. Imprimir los primeros 10 terminos de la serie de Fibonacci\n";
         cout << "0. Salir\n";
         cout << "Seleccione una opcion: ";
         cin >> opcion;
@@ -32,6 +34,7 @@ int main() {
             case 4: calcularFactorial(); break;
             case 5: imprimirPrimos1a50(); break;
             case 6: imprimirSerieEspecial(); break;
+            case 7: imprimirFibonacci10(); break;
             case 0: cout << "Saliendo del programa...\n"; break;
             default: cout << "Opcion invalida, intente de nuevo.\n";
         }
@@ -67,12 +70,6 @@ void sumaParesHastaN() {
     int n, suma = 0;
     cout << "\nIngrese un numero entero positivo: ";
     cin >> n;
-
-    // Validación para asegurarse que 'n' sea positivo
-    while (n <= 0) {
-        cout << "Por favor ingrese un numero mayor que 0: ";
-        cin >> n;
-    }
 
     for (int i = 2; i <= n; i += 2) {
         suma += i;
@@ -128,12 +125,6 @@ void imprimirSerieEspecial() {
     cout << "\nIngrese un numero para generar la serie: ";
     cin >> n;
 
-    // Validación para que 'n' sea positivo
-    while (n <= 0) {
-        cout << "Por favor ingrese un numero mayor que 0: ";
-        cin >> n;
-    }
-
     cout << "Serie: ";
     for (int i = 1; suma + i <= n; i++) {
         suma += i;
@@ -141,6 +132,21 @@ void imprimirSerieEspecial() {
     }
     cout << endl;
 }
+
+// Función que imprime los primeros 10 términos de la serie de Fibonacci
+void imprimirFibonacci10() {
+    int a = 0, b = 1, temp;
+    cout << "\nLos primeros 10 terminos de la serie de Fibonacci son:\n";
+
+    for (int i = 1; i <= 10; i++) {
+        cout << a << " ";
+        temp = a + b;
+        a = b;
+        b = temp;
+    }
+    cout << endl;
+}
+
 // TIP See CLion help at <a
 // href="https://www.jetbrains.com/help/clion/">jetbrains.com/help/clion/</a>.
 //  Also, you can try interactive lessons for CLion by selecting
